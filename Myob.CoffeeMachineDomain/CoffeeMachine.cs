@@ -5,51 +5,22 @@ namespace Myob.CoffeeMachineDomain
 {
     public class CoffeeMachine
     {
-        public class CoffeeMachineOutput : ICoffeeMachineOutput
+        public CoffeeMachineConsolePresenter coffeeMachineConsolePresenter;
+
+        public CoffeeMachine (CoffeeMachineConsolePresenter consolePresenter)
         {
-            public string OutPutText { get; set; }
-            public void Print()
-            {
-                Console.WriteLine(OutPutText);
-            }
+            coffeeMachineConsolePresenter = consolePresenter;
         }
-        public void MakeDrink()
+        public void MakeDrink(string input)
         {
-            Console.WriteLine("Please enter the drink you want to make");
-            var userInput = Console.ReadLine();
+            coffeeMachineConsolePresenter.InputText = input;
             try
             {
                 Order order = new Order();
-                CoffeeMachineOutput coffeeMachineOutput = new CoffeeMachineOutput();
-                string [] orderDetails = userInput.Split(":");
-                order.SetDrinkType(orderDetails[0]);
-                order.SetNumberOfSugar(orderDetails[1]);
-                order.SetStick();
-                if (order.DrinkType == "Unknown" || order.DrinkType == null)
-                {
-                    coffeeMachineOutput.OutPutText = "Sorry we don't know this drink";
-                    coffeeMachineOutput.Print();
-                    return;
-                }
-
-                if (order.Sugar >= 0)
-                {
-                    if (order.Sugar == 0)
-                    {
-                        coffeeMachineOutput.OutPutText = $"Drink maker makes 1 {order.DrinkType} with no sugar - and therefore no stick";
-                        coffeeMachineOutput.Print();
-                        return;
-                    }
-
-                    if (order.Sugar == 1)
-                    {
-                        coffeeMachineOutput.OutPutText = $"Drink maker makes 1 {order.DrinkType} with 1 sugar and a stick";
-                        coffeeMachineOutput.Print();
-                        return;
-                    }
-                    coffeeMachineOutput.OutPutText = $"Drink maker makes 1 {order.DrinkType} with {order.Sugar} sugars and a stick";
-                    coffeeMachineOutput.Print();
-                }
+                string [] orderDetailsAndPayment = coffeeMachineConsolePresenter.InputText.Split(",");
+                /*var messageForCustomer = "default message";*/
+                GeneratePresenterOutput(orderDetailsAndPayment, order);
+/*xx.verify*/
             }
             catch (Exception e)
             {
@@ -58,5 +29,40 @@ namespace Myob.CoffeeMachineDomain
             }
                 
         }
+
+        private void GeneratePresenterOutput(string[] orderDetailsAndPayment, Order order)
+        {
+            if (CheckIfInputHasOrderAndPayment(orderDetailsAndPayment))
+            {
+                var paymentAmount = orderDetailsAndPayment[1];
+                string[] orderDetails = orderDetailsAndPayment[0].Split(":");
+                order.SetDrinkType(orderDetails[0]);
+                order.SetNumberOfSugar(orderDetails[1]);
+                order.SetPaymentAmount(paymentAmount);
+                if (!IsInvalidDrink(order))
+                {
+                    if (CoffeeMachineValidator.IsMoneyUnderPaid(order))
+                    {
+                        coffeeMachineConsolePresenter.OutputForUnderPaidOrders();
+                        return;
+                    }
+
+                    coffeeMachineConsolePresenter.SetOutPutForValidDrinkTypesWithValidPayment(order);
+                    coffeeMachineConsolePresenter.WriteLine();
+                }
+            }
+        }
+
+        private bool IsInvalidDrink(Order order)
+        {
+            return order.DrinkType == "Unknown" || order.DrinkType == null;
+        }
+        private bool CheckIfInputHasOrderAndPayment(string [] input)
+        {
+            return input.Length == 2;
+        }
     }
+    /*TODO: Create new interface in a separate file unless it's related to Data model*/
+    /*TODO: Get to know DTO (data transfer object)*/
+
 }

@@ -4,44 +4,56 @@ namespace Myob.CoffeeMachineDomain
 {
     public class Order
     {
-        public string DrinkType { get; set; }
-        public int Sugar { get; set; }
-        public bool NeedStick { get; set; }
-        public void SetDrinkType(string inputDrink)
+        public string DrinkType { get; private set; }
+        /*TODO make it enum*/
+        public decimal PaymentAmount { get; private set; }
+        public decimal ActualPrice { get; private set;  }
+        public decimal AmountOfChange { get; private set; }
+        private int _sugar;
+        public void SetDrinkType(string inputDrinkType)
         {
             try
             {
-                if (inputDrink == "T")
+                if (CoffeeMachineValidator.IsDrinkTypeValid(inputDrinkType))
                 {
-                    DrinkType = "tea";
+                    DrinkType = inputDrinkType == "T" ? "Tea" : inputDrinkType == "C" ? "Coffee" : "Chocolate";
+                    return;
                 }
-                else if (inputDrink == "H")
-                {
-                    DrinkType = "tea";
-                }
-                else if (inputDrink == "C")
-                {
-                    DrinkType = "coffee";
-                }
+
+                DrinkType = "Unknown";
             }
             catch (Exception e)
             {
-                DrinkType = "Unknown";
                 Console.WriteLine(e);
                 throw;
             }
+            
         }
 
+        public int AmountOfSugar()
+        {
+            return _sugar;
+        }
+        public bool HasNoSugar()
+        {
+            return _sugar == 0;
+        }
+        
+        public bool HasMoreThanSetAmountOfSugar ()
+        {
+            return _sugar > 1;
+        }
+        
         public void SetNumberOfSugar(string inputSugar)
         {
             try
             {
-                if (int.TryParse(inputSugar, out int output) && DrinkType == "Unknown")
+                if (!int.TryParse(inputSugar, out int output) || DrinkType == "Unknown")
                 {
-                    Sugar = 0;
+                    _sugar = 0;
                 }
 
-                Sugar = output;
+                _sugar = output;
             }
             catch (Exception e)
             {
@@ -49,16 +61,16 @@ namespace Myob.CoffeeMachineDomain
                 throw;
             }
         }
-        public void SetStick()
+        public void SetPaymentAmount(string inputMoney)
         {
             try
             {
-                if (Sugar >= 1)
+                if (!decimal.TryParse(inputMoney, out decimal output) || DrinkType == "Unknown")
                 {
-                    NeedStick = true;
+                    PaymentAmount = 0;
                 }
-
-                NeedStick = false;
+                PaymentAmount = output;
+                SetActualPriceAndAmountOfChange();
             }
             catch (Exception e)
             {
@@ -66,5 +78,30 @@ namespace Myob.CoffeeMachineDomain
                 throw;
             }
         }
+
+        private void SetActualPriceAndAmountOfChange()
+        {
+            if (DrinkType == "Tea")
+            {
+                ActualPrice = (decimal) 0.4;
+                AmountOfChange = PaymentAmount - ActualPrice;
+            }
+            else if (DrinkType == "Chocolate")
+            {
+                ActualPrice = (decimal) 0.5;
+                AmountOfChange = PaymentAmount - ActualPrice;
+            }
+            else if (DrinkType == "Coffee")
+            {
+                ActualPrice = (decimal) 0.6;
+                AmountOfChange = PaymentAmount - ActualPrice;
+            }
+            else
+            {
+                ActualPrice = 0;
+                AmountOfChange = 0;
+            }
+        }
+        
     }
 }
