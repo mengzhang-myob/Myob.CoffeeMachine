@@ -1,4 +1,4 @@
-using System;
+/*using System;
 using Microsoft.VisualStudio.TestPlatform.Utilities;
 using Myob.CoffeeMachineDomain;
 using Xunit;
@@ -87,4 +87,4 @@ namespace Myob.CoffeeMachineUnitTests
         }
         
     }
-}
+}*/

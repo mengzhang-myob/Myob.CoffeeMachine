@@ -6,6 +6,27 @@
       &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.CoffeeMachineValidatorTests.ShouldThrowExceptionsWithUnkownDrinkType&lt;/TestId&gt;
       &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.CoffeeMachineValidatorTests&lt;/TestId&gt;
       &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderTests&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldThrowException_WhenTheUserInput_DoesNotHaveValidOrderDetailAndPaymentAmount&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldThrowException_WhenTheUserInput_DoesNotHaveValidOrderDetailAndPaymentAmountss&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldMakeTeaWithNoChange_WhenThereAreValidOrderDetailAndCorrectPaymentAmount&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldThrowException_WhenThereIsNoValidOrderDetailAndPaymentAmount&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldMakeTeaWithNoChange_WhenThereAreValidOrderDetailAndCorrectPaymentAmountkk&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldThrowException_WithUnknownDrinkType&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldThrowException_IfOrderDetailHasKnownDrinkType_WithIncorrectSugarFormat&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldThrowException_WithInvalidOrderDetails_And_ValidPaymentAmount&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldThrowException_ValidOrderDetails_And_UnderpaidPaymentAmount&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldThrowException_ValidOrderDetails_And_InvalidPaymentAmountFormat&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldThrowException_WithValidOrderDetail_WithOutPaymentAmount&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldMakeTea_WithValidOrderDetails_AndValidPaymentAmount&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldMakeExtraTea_WithValidOrderDetails_AndValidPaymentAmount&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldMakeCoffee_WithValidOrderDetails_AndValidPaymentAmount&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldMakeExtraHotCoffee_WithValidOrderDetails_AndValidPaymentAmount&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldMakeChocolate_WithValidOrderDetails_AndValidPaymentAmount&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldMakeExtraHotChocolate_WithValidOrderDetails_AndValidPaymentAmount&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldMakeExtraHotTea_WithValidOrderDetails_AndOverPaidPaymentAmount&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.CustomerMessageGeneratorTests&lt;/TestId&gt;
     &lt;/TestAncestor&gt;
+    &lt;ProjectFile&gt;5B04D5F9-445A-4C1E-9E6D-5B74398D14AB/f:OrderCreatorTests.cs&lt;/ProjectFile&gt;
   &lt;/Or&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
