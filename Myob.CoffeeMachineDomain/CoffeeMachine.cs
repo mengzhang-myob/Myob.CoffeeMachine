@@ -5,7 +5,7 @@ namespace Myob.CoffeeMachineDomain
 {
     public class CoffeeMachine
     {
-        public CoffeeMachineConsolePresenter coffeeMachineConsolePresenter;
+        private CoffeeMachineConsolePresenter coffeeMachineConsolePresenter;
 
         public CoffeeMachine (CoffeeMachineConsolePresenter consolePresenter)
         {
@@ -17,8 +17,7 @@ namespace Myob.CoffeeMachineDomain
             {
                 var userInput = originUserInout.Split(",");
                 OrderCreator orderCreator = new OrderCreator();
-                orderCreator.BuildOrderCreator(userInput);
-                Order order = orderCreator.CreateOrder();
+                Order order = orderCreator.BuildOrderCreator(userInput).CreateOrder();
                 coffeeMachineConsolePresenter.PresentCustomerMessage(order);
             }
             catch (Exception e)
