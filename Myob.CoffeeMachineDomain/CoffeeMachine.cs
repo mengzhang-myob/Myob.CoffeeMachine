@@ -27,6 +27,21 @@ namespace Myob.CoffeeMachineDomain
             }
                 
         }
+
+        public void PrintOrderHistory()
+        {
+            try
+            {
+                coffeeMachineConsolePresenter.PresentOrderHistory();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+
     }
 
 }

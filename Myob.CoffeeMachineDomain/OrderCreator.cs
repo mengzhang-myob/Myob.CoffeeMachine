@@ -47,11 +47,6 @@ namespace Myob.CoffeeMachineDomain
             );
             return order;
         }
-        
-        public OrderCreator CleanOrderCreator()
-        {
-            return new OrderCreator();
-        }
 
         public OrderCreator BuildOrderCreator(string[] userInput)
         {

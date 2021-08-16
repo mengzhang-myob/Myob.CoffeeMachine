@@ -10,5 +10,10 @@ namespace Myob.CoffeeMachineDomain
             var customerMessageGenerator = new CustomerMessageGenerator();
             Console.WriteLine(customerMessageGenerator.GenerateCustomerMessage(order));
         }
+        public void PresentOrderHistory()
+        {
+            var customerMessageGenerator = new CustomerMessageGenerator();
+            Console.WriteLine(customerMessageGenerator.GenerateCustomerMessageForOrderHistory());
+        }
     }
 }

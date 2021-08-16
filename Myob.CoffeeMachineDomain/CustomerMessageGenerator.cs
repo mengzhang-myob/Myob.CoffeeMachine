@@ -18,6 +18,12 @@ namespace Myob.CoffeeMachineDomain
 
         private readonly string _defaultSugarMessageForExtraHotNonJuiceDrinkWithoutSugar = " with no sugar";
 
+        private readonly string _defaultMessageForMoreOrders =
+            "Your order has been made, if you want to order more drinks, please press 'Y/y', otherwise press anything else to exit. ";
+
+        private readonly string _defaultMessageForAccessingDB =
+            "Meanwhile, enter 'D/d' to print out all the previous orders";
+
         private string GenerateSugarMessage(Order order)
         {
             if (order.AmountOfSugar > 1)
@@ -70,6 +76,10 @@ namespace Myob.CoffeeMachineDomain
         public string GenerateCustomerMessage(Order order)
         {
             return $"{GenerateDrinkMakerMessage(order)}{GenerateSugarMessage(order)}{GenerateAmountOfChangeMessage(order)}";
+        }
+        public string GenerateCustomerMessageForOrderHistory()
+        {
+            return "Hi this is db service";
         }
     }
 }
