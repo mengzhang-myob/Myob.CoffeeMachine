@@ -1,42 +1,36 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.VisualBasic;
 
 namespace Myob.CoffeeMachineDomain
 {
     public class OrderCreator
     {
-        private int _amountOfSugar;
-        private string _drinkType;
-        private decimal _actualPrice;
-        private decimal _paymentAmount;
-        private decimal _amountOfChange;
-        private bool _isExtraHot;
-        private enum DrinkTypeEnum
-        {
-            tea,
-            chocolate,
-            coffee,
-            orange
-        }
-
-        private readonly Dictionary<string, string> _drinks = new Dictionary<string, string>()
-        {
-            {"T", DrinkTypeEnum.tea.ToString()},
-            {"H", DrinkTypeEnum.chocolate.ToString()},
-            {"C", DrinkTypeEnum.coffee.ToString()},
-            {"O", DrinkTypeEnum.orange + " juice"}
-        };
-        private readonly Dictionary<string, decimal> _drinkPriceList = new Dictionary<string, decimal>()
+        private readonly Dictionary<string, decimal> _drinkPriceList = new Dictionary<string, decimal>
         {
             {DrinkTypeEnum.tea.ToString(), 0.4m},
             {DrinkTypeEnum.chocolate.ToString(), 0.5m},
             {DrinkTypeEnum.coffee.ToString(), 0.6m},
             {DrinkTypeEnum.orange + " juice", 0.6m}
         };
+
+        private readonly Dictionary<string, string> _drinks = new Dictionary<string, string>
+        {
+            {"T", DrinkTypeEnum.tea.ToString()},
+            {"H", DrinkTypeEnum.chocolate.ToString()},
+            {"C", DrinkTypeEnum.coffee.ToString()},
+            {"O", DrinkTypeEnum.orange + " juice"}
+        };
+
+        private decimal _actualPrice;
+        private decimal _amountOfChange;
+        private int _amountOfSugar;
+        private string _drinkType;
+        private bool _isExtraHot;
+        private decimal _paymentAmount;
+
         public Order CreateOrder()
         {
-            Order order = new Order
+            var order = new Order
             (
                 _drinkType,
                 _actualPrice,
@@ -61,13 +55,14 @@ namespace Myob.CoffeeMachineDomain
 
                 throw new ArgumentException("Wrong format, your payment detail should be a decimal value");
             }
+
             throw new ArgumentException("This Order is in the wrong format");
         }
 
         //command query separation
         //command - changing things - updating state , performing action
         //query - return a value
-        
+
         //get the answer whether it's validate
         //return type is confusing
         //assigning state
@@ -96,17 +91,15 @@ namespace Myob.CoffeeMachineDomain
                     if (int.TryParse(orderDetail[1], out var sugarWithoutExtraHot))
                     {
                         if (IsJuice(orderDetail[0]) && sugarWithoutExtraHot != 0)
-                        {
                             throw new ArgumentException("Orange juice cannot have extra sugar");
-                        }
                         _amountOfSugar = sugarWithoutExtraHot;
                         _drinkType = _drinks[orderDetail[0]];
                         _isExtraHot = false;
                         return;
                     }
+
                     throw new ArgumentException(
                         "Sorry, the amount of sugar you entered is invalid");
-
                 }
 
                 throw new ArgumentException(
@@ -133,10 +126,7 @@ namespace Myob.CoffeeMachineDomain
 
                 if (int.TryParse(orderDetail[1], out var sugarWithExtraHot))
                 {
-                    if (IsJuice(drinkTypeInput))
-                    {
-                        throw new ArgumentException("Orange juice cannot be made extra hot");
-                    }
+                    if (IsJuice(drinkTypeInput)) throw new ArgumentException("Orange juice cannot be made extra hot");
 
                     _amountOfSugar = sugarWithExtraHot;
                     _drinkType = _drinks[drinkTypeInput];
@@ -159,29 +149,40 @@ namespace Myob.CoffeeMachineDomain
             _paymentAmount = Convert.ToDecimal(payment);
             _actualPrice = _drinkPriceList[_drinkType];
             if (_paymentAmount >= _actualPrice)
-            { 
+            {
                 _amountOfChange = _paymentAmount - _actualPrice;
                 return;
             }
 
             throw new ArgumentException("You did not pay enough money");
         }
+
         private static bool IsExtraHot(string[] orderDetail)
         {
             return orderDetail[0].EndsWith("h");
         }
+
         private bool IsPaymentDetailValid(string payment)
         {
             return decimal.TryParse(payment, out var result);
         }
+
         private bool IsOrderValid(string[] userInput)
         {
-            return (userInput.Length == 2);
+            return userInput.Length == 2;
         }
 
         private bool IsJuice(string userInput)
         {
             return _drinks[userInput].EndsWith("juice");
+        }
+
+        private enum DrinkTypeEnum
+        {
+            tea,
+            chocolate,
+            coffee,
+            orange
         }
     }
 }

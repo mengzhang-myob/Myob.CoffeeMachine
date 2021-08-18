@@ -1,7 +1,4 @@
-using System;
-using Microsoft.VisualStudio.TestPlatform.Utilities;
 using Myob.CoffeeMachineDomain;
-using Xunit;
 
 namespace Myob.CoffeeMachineUnitTests
 {
@@ -21,6 +18,5 @@ namespace Myob.CoffeeMachineUnitTests
             //Assert
             Assert.Equal("Orange juice cannot have extra sugar", ex.Message);
         }*/
-        
     }
 }

@@ -26,7 +26,9 @@
       &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests.ShouldMakeExtraHotTea_WithValidOrderDetails_AndOverPaidPaymentAmount&lt;/TestId&gt;
       &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderCreatorTests&lt;/TestId&gt;
       &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.CustomerMessageGeneratorTests&lt;/TestId&gt;
+      &lt;TestId&gt;xUnit::5B04D5F9-445A-4C1E-9E6D-5B74398D14AB::.NETCoreApp,Version=v3.1::Myob.CoffeeMachineUnitTests.OrderHistoryManagerTests.ShouldRetrieveCorrectOrderHistory_WithMultipleCorrectlyPaidOrder&lt;/TestId&gt;
     &lt;/TestAncestor&gt;
     &lt;ProjectFile&gt;5B04D5F9-445A-4C1E-9E6D-5B74398D14AB/f:OrderCreatorTests.cs&lt;/ProjectFile&gt;
+    &lt;ProjectFile&gt;5B04D5F9-445A-4C1E-9E6D-5B74398D14AB/f:OrderHistoryManagerTests.cs&lt;/ProjectFile&gt;
   &lt;/Or&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

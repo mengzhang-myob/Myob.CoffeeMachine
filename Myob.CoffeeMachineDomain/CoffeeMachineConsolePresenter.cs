@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 
 namespace Myob.CoffeeMachineDomain
 {
@@ -10,10 +9,11 @@ namespace Myob.CoffeeMachineDomain
             var customerMessageGenerator = new CustomerMessageGenerator();
             Console.WriteLine(customerMessageGenerator.GenerateCustomerMessage(order));
         }
-        public void PresentOrderHistory()
+
+        public void PresentOrderHistory(OrderHistory orderHistory)
         {
             var customerMessageGenerator = new CustomerMessageGenerator();
-            Console.WriteLine(customerMessageGenerator.GenerateCustomerMessageForOrderHistory());
+            Console.WriteLine(customerMessageGenerator.GenerateCustomerMessageForOrderHistory(orderHistory));
         }
     }
 }
